@@ -19,6 +19,7 @@ namespace ConsoleLauncher
                 Console.WriteLine("\nПочасовая заработная плата:\n");
                 Console.WriteLine("4. Начислить заработную плату для почасовой формы.");
                 Console.WriteLine("5. Узнать баланс для почасовой заработной платы.");
+                Console.WriteLine("6. Узнать выплату за пребывание в отпуске.");
                 Console.WriteLine("\n0. Выход.");
 
                 key = Convert.ToInt32(Console.ReadLine());
@@ -44,6 +45,7 @@ namespace ConsoleLauncher
                         }
                     case 4:
                         {
+                            hourlyPayment.AverageDaily();
                             hourlyPayment.Payout();
                             Console.WriteLine("Начисление прошло успешно.\n");
                             break;
@@ -53,6 +55,12 @@ namespace ConsoleLauncher
                             //Будет выводится корректное значение только после того, как
                             //будет выполнет предыдущий case, иначе будет выведен 0.
                             Console.WriteLine("Баланс: " + hourlyPayment.GetBalance() + "\n");
+                            break;
+                        }
+                    case 6:
+                        {
+                            hourlyPayment.Vacation();
+                            Console.WriteLine("Выплата отпускных: " + hourlyPayment.GetVacation() + "\n");
                             break;
                         }
                     case 0:
