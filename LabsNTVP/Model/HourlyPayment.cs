@@ -3,8 +3,6 @@
     //Почасовая оплата.
    public class HourlyPayment : IPayment
     {
-        //Значения заданы для проверки правильной работы.
-
         //Ставка за час работы.
         private double _bet;
         //Среднедневная заработная плата.
@@ -55,7 +53,7 @@
                 {
                     _bet = value;
                 }
-                else _bet = 1;
+                else throw new System.Exception("Значение оклада за час должно быть больше 0.");
             }
         }
 

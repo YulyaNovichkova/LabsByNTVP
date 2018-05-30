@@ -22,6 +22,7 @@ namespace Model
                     Console.WriteLine("4. Начислить заработную плату для почасовой формы.");
                     Console.WriteLine("5. Узнать баланс для почасовой заработной платы.");
                     Console.WriteLine("6. Узнать выплату за пребывание в отпуске.");
+                    Console.WriteLine("7. Получить полную информацию.");
                     Console.WriteLine("\n0. Выход.");
 
                     key = Convert.ToInt32(Console.ReadLine());
@@ -64,6 +65,33 @@ namespace Model
                         case 6:
                             {
                                 Console.WriteLine("Выплата отпускных: " + hourlyPayment.Vacation() + "\n");
+                                break;
+                            }
+                        case 7:
+                            {
+                                Console.WriteLine("\tКонтрольный вывод для ставки по окладу.\n");
+
+                                salaryPayment.Surname = "Иванов";
+                                salaryPayment.Name = "Иван";
+                                salaryPayment.Bet = 30000;
+                                salaryPayment.Rate = 1;
+                                salaryPayment.Payout();
+
+                                Console.WriteLine("Информация для " + salaryPayment.Surname + " " + salaryPayment.Name + "\n");
+                                Console.WriteLine("Получит зарплату за месяц: " + salaryPayment.Payout() + "\n");
+                                Console.WriteLine("Получит отпускных: " + salaryPayment.Vacation() + "\n");
+
+                                Console.WriteLine("\tКонтрольный вывод для почасовой ставки.\n");
+
+                                hourlyPayment.Surname = "Петров";
+                                hourlyPayment.Name = "Петр";
+                                hourlyPayment.Bet = 55.46;
+                                hourlyPayment.AverageDaily();
+                                hourlyPayment.Payout();
+
+                                Console.WriteLine("Информация для " + hourlyPayment.Surname + " " + hourlyPayment.Name + "\n");
+                                Console.WriteLine("Получит зарплату за месяц: " + hourlyPayment.Payout() + "\n");
+                                Console.WriteLine("Получит отпускных: " + hourlyPayment.Vacation() + "\n");
                                 break;
                             }
                         case 0:

@@ -3,7 +3,6 @@
     //Оплата по окладу.
     public class SalaryPayment : IPayment
     {
-        //Значения заданы для проверки работы начисления отпускных.
         //Оклад за месяц.
         private double _bet;
         //Коэффициент.
@@ -50,10 +49,7 @@
                 {
                     _bet = value;
                 }
-                else
-                {
-                    _bet = 1;
-                }
+                else throw new System.Exception("Значение ставки должно быть больше 0.");
             }
         }
 
@@ -69,7 +65,7 @@
                 {
                     _rate = value;
                 }
-                else _rate = 1;
+                else throw new System.Exception("Значение коэфициента должно быть больше 0.");
             }
         }
 
