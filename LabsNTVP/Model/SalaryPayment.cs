@@ -1,18 +1,35 @@
 ﻿namespace Model
 {
-    //Оплата по окладу.
+    /// <summary>
+    /// Класс SalaryPayment.
+    /// Работает с данными для оклада по ставке.
+    /// </summary>
     public class SalaryPayment : IPayment
     {
-        //Оклад за месяц.
+        /// <summary>
+        /// Ставка за месяц работы.
+        /// </summary>
         private double _bet;
-        //Коэффициент.
+
+        /// <summary>
+        /// Коэффициент заработной платы.
+        /// </summary>
         private double _rate;
-        //Количество дней в отпуске.
+
+        /// <summary>
+        /// Количество дней в отпуске.
+        /// </summary>
         private int _day = 9;
 
+        /// <summary>
+        /// Данные о человеке, получающего зарплату.
+        /// </summary>
         private string _surname;
         private string _name;
 
+        /// <value>
+        /// Запись и чтение фамилии человека.
+        /// </value>
         public string Surname
         {
             get
@@ -25,6 +42,9 @@
             }
         }
 
+        /// <value>
+        /// Запись и чтение имени человека.
+        /// </value>
         public string Name
         {
             get
@@ -37,6 +57,9 @@
             }
         }
 
+        /// <value>
+        /// Запись и чтение ставки за месяц.
+        /// </value>
         public double Bet
         {
             get
@@ -53,6 +76,9 @@
             }
         }
 
+        /// <value>
+        /// Запись и чтение коэфицикнта заработной платы.
+        /// </value>
         public double Rate
         {
             get
@@ -69,17 +95,20 @@
             }
         }
 
-        //Расчет начисления за месяц.
+        /// <returns> 
+        /// Возвращает значение итоговой оплаты труда за месяц. 
+        /// </returns>
         public double Payout()
         {
             double salary = _bet * _rate;
             return salary;
         }
 
-        //Расчет отпускных.
+        /// <returns> 
+        /// Возвращает значение суммы, которую необходимо выплатить за отпуск. 
+        /// </returns>
         public double Vacation()
         {
-            //Корректный результат должен быть равен 9215,02
             double vacation = (_day * (Payout() * 12) / 12 /29.3);
             return vacation;
         }

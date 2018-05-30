@@ -1,22 +1,45 @@
 ﻿namespace Model
 {
-    //Почасовая оплата.
-   public class HourlyPayment : IPayment
+    /// <summary>
+    /// Класс HourlyPayment.
+    /// Работает с данными для почасофой заработной платы.
+    /// </summary>
+    public class HourlyPayment : IPayment
     {
-        //Ставка за час работы.
+        /// <summary>
+        /// Ставка за час работы.
+        /// </summary>
         private double _bet;
-        //Среднедневная заработная плата.
+
+        /// <summary>
+        /// Заработная плата за день.
+        /// </summary>
         private double _averageDaily = 0.0;
-        //Рабочая норма часов в день.
+
+        /// <summary>
+        /// Рабочая норма часов в день.
+        /// </summary>
         private int _hour = 8;
-        //Количество отработанных часов за месяц.
+
+        /// <summary>
+        /// Количество отработанных часов за месяц.
+        /// </summary>
         private int _workDay = 20;
-        //Количество дней в отпуске.
+
+        /// <summary>
+        /// Количество дней в отпуске.
+        /// </summary>
         private int _day = 12;
 
+        /// <summary>
+        /// Данные о человеке, получающего зарплату.
+        /// </summary>
         private string _surname;
         private string _name;
 
+        /// <value>
+        /// Запись и чтение фамилии человека.
+        /// </value>
         public string Surname
         {
             get
@@ -29,6 +52,9 @@
             }
         }
 
+        /// <value>
+        /// Запись и чтение имени человека.
+        /// </value>
         public string Name
         {
             get
@@ -41,6 +67,9 @@
             }
         }
 
+        /// <value>
+        /// Запись и чтение ставки за час.
+        /// </value>
         public double Bet
         {
             get
@@ -57,24 +86,28 @@
             }
         }
 
-        //Расчет среднедневной заработной платы.
+        /// <summary>
+        /// Метод, расчитывающий среднедневную заработную плату.
+        /// </summary>
         public void AverageDaily()
         {
             _averageDaily = _bet * _hour;
         }
 
-        //Расчет начисления за месяц.
+        /// <returns> 
+        /// Возвращает значение итоговой оплаты труда за месяц. 
+        /// </returns>
         public double Payout()
         {
             double salary = _averageDaily * _workDay;
             return salary;
         }
 
-        //Результат будет корректный, если соблюдалась норма в 8 рабочих часов.
-        //Расчет отпускных.
+        /// <returns> 
+        /// Возвращает значение суммы, которую необходимо выплатить за отпуск. 
+        /// </returns>
         public double Vacation()
         {
-            //Корректный результат должен быть равен  5324,23.
             double vacation = _day * _averageDaily;
             return vacation;
         }

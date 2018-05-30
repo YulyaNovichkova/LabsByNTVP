@@ -1,14 +1,28 @@
 ﻿namespace Model
 {
+    /// <summary>
+    /// Интерфейс IPayment.
+    /// </summary>
     public interface IPayment
     {
-        //Расчет и возвращения начисления за месяц.
+        /// <returns>
+        /// Расчет и возвращение начисления за месяц.
+        /// </returns>
         double Payout();
-        //Расчет отпускных.
+
+        /// <returns> 
+        /// Расчитывает и возвращает значение суммы, которую необходимо выплатить за отпуск. 
+        /// </returns>
         double Vacation();
 
+        /// <value>
+        /// Запись и чтение фамилии человека.
+        /// </value>
         string Surname { get; set; }
 
+        /// <value>
+        /// Запись и чтение имени человека.
+        /// </value>
         string Name { get; set; }
     }
 }
