@@ -5,9 +5,9 @@
     {
         //Значения заданы для проверки работы начисления отпускных.
         //Оклад за месяц.
-        private double _bet = 30000.0;
+        private double _bet;
         //Коэффициент.
-        private double _rate = 1.0;
+        private double _rate;
         //Количество дней в отпуске.
         private int _day = 9;
 
@@ -22,7 +22,7 @@
             }
             set
             {
-                _surname = Surname;
+                _surname = value;
             }
         }
 
@@ -34,7 +34,42 @@
             }
             set
             {
-                _name = Name;
+                _name = value;
+            }
+        }
+
+        public double Bet
+        {
+            get
+            {
+                return _bet;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    _bet = value;
+                }
+                else
+                {
+                    _bet = 1;
+                }
+            }
+        }
+
+        public double Rate
+        {
+            get
+            {
+                return _rate;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    _rate = value;
+                }
+                else _rate = 1;
             }
         }
 

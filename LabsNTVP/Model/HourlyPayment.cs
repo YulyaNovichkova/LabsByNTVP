@@ -5,8 +5,8 @@
     {
         //Значения заданы для проверки правильной работы.
 
-        //Оплата за час работы.
-        private double _bet = 55.46;
+        //Ставка за час работы.
+        private double _bet;
         //Среднедневная заработная плата.
         private double _averageDaily = 0.0;
         //Рабочая норма часов в день.
@@ -27,7 +27,7 @@
             }
             set
             {
-                _surname = Surname;
+                _surname = value;
             }
         }
 
@@ -39,7 +39,23 @@
             }
             set
             {
-                _name = Name;
+                _name = value;
+            }
+        }
+
+        public double Bet
+        {
+            get
+            {
+                return _bet;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    _bet = value;
+                }
+                else _bet = 1;
             }
         }
 

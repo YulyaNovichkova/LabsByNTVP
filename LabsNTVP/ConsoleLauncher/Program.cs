@@ -30,6 +30,8 @@ namespace Model
                     {
                         case 1:
                             {
+                                salaryPayment.Bet = 30000;
+                                salaryPayment.Rate = 1;
                                 salaryPayment.Payout();
                                 Console.WriteLine("Начисление прошло успешно.\n");
                                 break;
@@ -46,6 +48,7 @@ namespace Model
                             }
                         case 4:
                             {
+                                hourlyPayment.Bet = 55.46;
                                 hourlyPayment.AverageDaily();
                                 hourlyPayment.Payout();
                                 Console.WriteLine("Начисление прошло успешно.\n");
