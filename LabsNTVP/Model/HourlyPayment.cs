@@ -9,27 +9,27 @@
         /// <summary>
         /// Ставка за час работы.
         /// </summary>
-        private double _bet;
+        private double _hourSalary;
 
         /// <summary>
         /// Заработная плата за день.
         /// </summary>
-        private double _averageDaily = 0.0;
+        private double _averageDaily;
 
         /// <summary>
         /// Рабочая норма часов в день.
         /// </summary>
-        private int _hour = 8;
+        private uint _hour;
 
         /// <summary>
         /// Количество отработанных часов за месяц.
         /// </summary>
-        private int _workDay = 20;
+        private uint _workDay;
 
         /// <summary>
         /// Количество дней в отпуске.
         /// </summary>
-        private int _day = 12;
+        private uint _day;
 
         /// <summary>
         /// Данные о человеке, получающего зарплату.
@@ -40,49 +40,71 @@
         /// <value>
         /// Запись и чтение фамилии человека.
         /// </value>
-        public string Surname
-        {
-            get
-            {
-                return _surname;
-            }
-            set
-            {
-                _surname = value;
-            }
-        }
+        public string Surname { get; set; }
 
         /// <value>
         /// Запись и чтение имени человека.
         /// </value>
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-            }
-        }
+        public string Name { get; set; }
 
         /// <value>
         /// Запись и чтение ставки за час.
         /// </value>
-        public double Bet
+        public double HourSalary
         {
             get
             {
-                return _bet;
+                return _hourSalary;
             }
             set
             {
-                if (value > 0)
+                if (value < 0)
                 {
-                    _bet = value;
+                    throw new System.Exception("Значение оклада за час должно быть больше 0.");
                 }
-                else throw new System.Exception("Значение оклада за час должно быть больше 0.");
+                else _hourSalary = value;
+            }
+        }
+
+        public uint Hour
+        {
+            get
+            {
+                return _hour;
+            }
+            set
+            {
+                _hour = value;
+            }
+        }
+
+        /// <value>
+        /// Запись и чтение количество отработаных дней.
+        /// </value>
+        public uint WorkDay
+        {
+            get
+            {
+                return _workDay;
+            }
+            set
+            {
+                _workDay = value;
+            }
+        }
+
+        /// <value>
+        /// Запись и чтение количества дней в отпуске.
+        /// </value>
+        public uint Day
+        {
+            get
+            {
+                return _day;
+            }
+            set
+            {
+                _day = value;
             }
         }
 
@@ -91,7 +113,7 @@
         /// </summary>
         public void AverageDaily()
         {
-            _averageDaily = _bet * _hour;
+            _averageDaily = _hourSalary * _hour;
         }
 
         /// <returns> 
