@@ -12,11 +12,6 @@
         private double _hourSalary;
 
         /// <summary>
-        /// Заработная плата за день.
-        /// </summary>
-        private double _averageDaily;
-
-        /// <summary>
         /// Рабочая норма часов в день.
         /// </summary>
         private uint _hour;
@@ -36,6 +31,19 @@
         /// </summary>
         private string _surname;
         private string _name;
+
+        /// <summary>
+        /// Конструктор класса
+        /// </summary>
+        public HourlyPayment(string surname, string name, double hourSalary, uint workDay, uint day, uint hour)
+        {
+            Surname = surname;
+            Name = name;
+            HourSalary = hourSalary;
+            WorkDay = workDay;
+            Day = day;
+            Hour = hour;
+        }
 
         /// <value>
         /// Чтение и запись фамилии человека.
@@ -112,28 +120,46 @@
         }
 
         /// <summary>
-        /// Метод, расчитывающий среднедневную заработную плату.
+        /// Возвращает значения итоговой оплаты труда за месяц. 
         /// </summary>
-        public void AverageDaily()
+        /// <returns></returns>
+        public double Salary()
         {
-            _averageDaily = _hourSalary * _hour;
-        }
-
-        /// <returns> 
-        /// Возвращает значение итоговой оплаты труда за месяц. 
-        /// </returns>
-        public double Payout()
-        {
-            double salary = _averageDaily * _workDay;
+            double salary = (_hourSalary * _hour) * _workDay;
             return salary;
         }
 
         /// <returns> 
-        /// Возвращает значение суммы, которую необходимо выплатить за отпуск. 
+        /// Чтение значения итоговой оплаты труда за месяц. 
         /// </returns>
-        public double Vacation()
+        public double Payout
         {
-            double vacation = _day * _averageDaily;
+            get
+            {
+                //double salary = _averageDaily * _workDay;
+                return Salary();
+            }
+        }
+
+        /// <returns> 
+        /// Чтение значения суммы, которую необходимо выплатить за отпуск. 
+        /// </returns>
+        public double Vacation
+        {
+            get
+            {
+                //double vacation = _day * (_hourSalary * _hour);
+                return CalculationVacation();
+            }
+        }
+
+        /// <summary>
+        /// Расчитывает значение суммы, которую необходимо выплатить за отпуск. 
+        /// </summary>
+        /// <returns></returns>
+        public double CalculationVacation()
+        {
+            double vacation = _day * (_hourSalary * _hour);
             return vacation;
         }
     }

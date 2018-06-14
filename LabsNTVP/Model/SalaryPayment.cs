@@ -27,6 +27,18 @@
         private string _surname;
         private string _name;
 
+        /// <summary>
+        /// Конструктор класса
+        /// </summary>
+        public SalaryPayment(string surname, string name, double monthSalary, double rate, uint day)
+        {
+            Surname = surname;
+            Name = name;
+            MonthSalary = monthSalary;
+            Rate = rate;
+            Day = day;
+        }
+
         /// <value>
         /// Чтение и запись фамилии человека.
         /// </value>
@@ -90,21 +102,47 @@
             }
         }
 
-        /// <returns> 
-        /// Возвращает значение итоговой оплаты труда за месяц. 
-        /// </returns>
-        public double Payout()
+        /// <summary>
+        /// Возвращает значения итоговой оплаты труда за месяц. 
+        /// </summary>
+        /// <returns></returns>
+        public double Salary()
         {
             double salary = _monthSalary * _rate;
             return salary;
         }
 
         /// <returns> 
-        /// Возвращает значение суммы, которую необходимо выплатить за отпуск. 
+        /// Чтение значения итоговой оплаты труда за месяц. 
         /// </returns>
-        public double Vacation()
+        public double Payout
         {
-            double vacation = (_day * (Payout() * 12) / 12 /29.3);
+            get
+            {
+                //double salary = _monthSalary * _rate;
+                return Salary();
+            }
+        }
+
+        /// <returns> 
+        /// Чтение значения суммы, которую необходимо выплатить за отпуск. 
+        /// </returns>
+        public double Vacation
+        {
+            get
+            {
+                //double vacation = (_day * (Salary() * 12) / 12 / 29.3);
+                return CalculationVacation();
+            }
+        }
+
+        /// <summary>
+        /// Расчитывает значение суммы, которую необходимо выплатить за отпуск. 
+        /// </summary>
+        /// <returns></returns>
+        public double CalculationVacation()
+        {
+            double vacation = (_day * (Salary() * 12) / 12 / 29.3);
             return vacation;
         }
     }
