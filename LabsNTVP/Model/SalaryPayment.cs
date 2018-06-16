@@ -119,7 +119,6 @@
         {
             get
             {
-                //double salary = _monthSalary * _rate;
                 return Salary();
             }
         }
@@ -131,7 +130,6 @@
         {
             get
             {
-                //double vacation = (_day * (Salary() * 12) / 12 / 29.3);
                 return CalculationVacation();
             }
         }

@@ -136,7 +136,6 @@
         {
             get
             {
-                //double salary = _averageDaily * _workDay;
                 return Salary();
             }
         }
@@ -148,7 +147,6 @@
         {
             get
             {
-                //double vacation = _day * (_hourSalary * _hour);
                 return CalculationVacation();
             }
         }

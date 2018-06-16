@@ -18,10 +18,15 @@ namespace View
     {
         public IPayment payment { get; private set; }
 
+        public bool IsTrue = false;
+
         public AddObjectForm()
         {
             InitializeComponent();
-            MakeElementsInvisible();
+            MakeElementsInvisible(IsTrue);
+#if !DEBUG
+            ButtonRandomPerson_Click.Visible = false;
+#endif
         }
 
         /// <summary>
@@ -43,6 +48,8 @@ namespace View
                 }
             ClearTextBoxes();
             DialogResult = DialogResult.OK;
+            ComboBoxType.SelectedIndex = -1;
+            MakeElementsInvisible(IsTrue);
             Close();
         }
 
@@ -54,6 +61,8 @@ namespace View
         private void ButtonClose_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
+            MakeElementsInvisible(IsTrue);
+            ComboBoxType.SelectedIndex = -1;
             Close();
         }
 
@@ -68,6 +77,7 @@ namespace View
             TextBoxWorkDay.Text = String.Empty;
             TextBoxVacationDays.Text = String.Empty;
             TextBoxRate.Text = String.Empty;
+            TextBoxHour.Text = String.Empty;
         }
 
         /// <summary>
@@ -77,65 +87,85 @@ namespace View
         /// <param name="e"></param>
         private void ComboBoxType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MakeElementsInvisible();
+            MakeElementsInvisible(!IsTrue);
             ButtonAdd.Visible = true;
             ButtonClose.Visible = true;
 
             if (ComboBoxType.SelectedIndex == 0)
             {
-                LabelName.Visible = true;
-                LabelSurname.Visible = true;
-                LabelRate.Visible = true;
-                LabelSalary.Visible = true;
-                LabelVacationDays.Visible = true;
 
-                TextBoxSurname.Visible = true;
-                TextBoxName.Visible = true;
-                TextBoxSalary.Visible = true;
+                LabelRate.Visible = true;
                 TextBoxRate.Visible = true;
-                TextBoxVacationDays.Visible = true;
+
+                LabelWorkMonth.Visible = false;
+                TextBoxWorkDay.Visible = false;
+
+                LabelHour.Visible = false;
+                TextBoxHour.Visible = false;
             }
             if (ComboBoxType.SelectedIndex == 1)
             {
-                LabelName.Visible = true;
-                LabelSurname.Visible = true;
-                LabelSalary.Visible = true;
-                LabelVacationDays.Visible = true;
-                LabelWorkMonth.Visible = true;
-                LabelHour.Visible = true;
 
-                TextBoxSurname.Visible = true;
-                TextBoxName.Visible = true;
-                TextBoxSalary.Visible = true;
+                LabelWorkMonth.Visible = true;
                 TextBoxWorkDay.Visible = true;
-                TextBoxVacationDays.Visible = true;
+
+                LabelHour.Visible = true;
                 TextBoxHour.Visible = true;
+
+                LabelRate.Visible = false;
+                TextBoxRate.Visible = false;
             }
         }
 
         /// <summary>
         /// Метод скрывающий элементы формы.
         /// </summary>
-        private void MakeElementsInvisible()
+        private void MakeElementsInvisible(bool IsTrue)
         {
-            ButtonAdd.Visible = false;
-            ButtonClose.Visible = false;
+            groupBox1.Visible = IsTrue;
+        }
 
-            LabelName.Visible = false;
-            LabelSurname.Visible = false;
-            LabelRate.Visible = false;
-            LabelSalary.Visible = false;
-            LabelVacationDays.Visible = false;
-            LabelWorkMonth.Visible = false;
-            LabelHour.Visible = false;
+        /// <summary>
+        /// Метод, вызываетмый для генерации случайных значений.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonRandomPerson_Click(object sender, EventArgs e)
+        {
+#if DEBUG
+            Random random = new Random();
 
-            TextBoxSurname.Visible = false;
-            TextBoxName.Visible = false;
-            TextBoxSalary.Visible = false;
-            TextBoxWorkDay.Visible = false;
-            TextBoxRate.Visible = false;
-            TextBoxVacationDays.Visible = false;
-            TextBoxHour.Visible = false;
+            string[] surname = new string[15] { "Иванов", "Петров", "Сидоров", "Трофимов", "Вакулин", "Колесник",
+                "Соловов", "Калинин", "Калачев", "Ермолаев","Тихонов", "Бродт", "Дворной", "Пушкарёв", "Муленок" };
+            string[] name = new string[15] { "Дмитрий", "Павел", "Александр", "Сергей", "Илья","Ярослав", "Алексей",
+                "Кирилл", "Николай", "Иван", "Владислав", "Слава", "Георгий", "Евгений", "Виталя" };
+
+            string randomSurname = surname[random.Next(15)].ToString();
+            string randomName = name[random.Next(15)].ToString();
+
+            int randomType = random.Next(2);
+            int randomSalaryPayment = random.Next(1, 50000);
+            int randomSalaryHourly = random.Next(1, 200);
+            double randomRate = random.Next(2);
+            int randomWorkDay = random.Next(25);
+            int randomVacationDays = random.Next(28);
+            int randomHour = random.Next(1,10);
+
+            if (randomType == 0)
+            {
+                payment = new SalaryPayment(randomSurname, randomName, randomSalaryPayment, randomRate, Convert.ToUInt32(randomVacationDays));
+            }
+            else
+            {
+                payment = new HourlyPayment(randomSurname, randomName, randomSalaryHourly, Convert.ToUInt32(randomWorkDay),
+                    Convert.ToUInt32(randomVacationDays), Convert.ToUInt32(randomHour));
+            }
+            ClearTextBoxes();
+            DialogResult = DialogResult.OK;
+            ComboBoxType.SelectedIndex = -1;
+            MakeElementsInvisible(IsTrue);
+            Close();
+#endif
         }
     }
 }

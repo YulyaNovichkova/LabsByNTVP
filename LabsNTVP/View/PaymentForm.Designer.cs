@@ -32,6 +32,7 @@
             this.Зарплата = new System.Windows.Forms.GroupBox();
             this.ButtonRemoveObject = new System.Windows.Forms.Button();
             this.ButtonAddObject = new System.Windows.Forms.Button();
+            this.ButtonSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Зарплата.SuspendLayout();
             this.SuspendLayout();
@@ -39,26 +40,27 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 30);
+            this.dataGridView1.Location = new System.Drawing.Point(19, 30);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(450, 231);
+            this.dataGridView1.Size = new System.Drawing.Size(403, 231);
             this.dataGridView1.TabIndex = 0;
             // 
             // Зарплата
             // 
+            this.Зарплата.Controls.Add(this.ButtonSearch);
             this.Зарплата.Controls.Add(this.ButtonRemoveObject);
             this.Зарплата.Controls.Add(this.ButtonAddObject);
             this.Зарплата.Controls.Add(this.dataGridView1);
             this.Зарплата.Location = new System.Drawing.Point(22, 23);
             this.Зарплата.Name = "Зарплата";
-            this.Зарплата.Size = new System.Drawing.Size(491, 316);
+            this.Зарплата.Size = new System.Drawing.Size(562, 284);
             this.Зарплата.TabIndex = 1;
             this.Зарплата.TabStop = false;
             this.Зарплата.Text = "Зарплаты";
             // 
             // ButtonRemoveObject
             // 
-            this.ButtonRemoveObject.Location = new System.Drawing.Point(368, 277);
+            this.ButtonRemoveObject.Location = new System.Drawing.Point(440, 238);
             this.ButtonRemoveObject.Name = "ButtonRemoveObject";
             this.ButtonRemoveObject.Size = new System.Drawing.Size(102, 23);
             this.ButtonRemoveObject.TabIndex = 2;
@@ -68,19 +70,28 @@
             // 
             // ButtonAddObject
             // 
-            this.ButtonAddObject.Location = new System.Drawing.Point(20, 277);
+            this.ButtonAddObject.Location = new System.Drawing.Point(440, 30);
             this.ButtonAddObject.Name = "ButtonAddObject";
-            this.ButtonAddObject.Size = new System.Drawing.Size(89, 23);
+            this.ButtonAddObject.Size = new System.Drawing.Size(102, 23);
             this.ButtonAddObject.TabIndex = 1;
             this.ButtonAddObject.Text = "Добавить";
             this.ButtonAddObject.UseVisualStyleBackColor = true;
             this.ButtonAddObject.Click += new System.EventHandler(this.ButtonAddObject_Click);
             // 
+            // ButtonSearch
+            // 
+            this.ButtonSearch.Location = new System.Drawing.Point(440, 75);
+            this.ButtonSearch.Name = "ButtonSearch";
+            this.ButtonSearch.Size = new System.Drawing.Size(101, 23);
+            this.ButtonSearch.TabIndex = 3;
+            this.ButtonSearch.Text = "Поиск";
+            this.ButtonSearch.UseVisualStyleBackColor = true;
+            // 
             // PaymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 351);
+            this.ClientSize = new System.Drawing.Size(596, 321);
             this.Controls.Add(this.Зарплата);
             this.Name = "PaymentForm";
             this.Text = "PaymentForm";
@@ -96,6 +107,7 @@
         private System.Windows.Forms.GroupBox Зарплата;
         private System.Windows.Forms.Button ButtonRemoveObject;
         private System.Windows.Forms.Button ButtonAddObject;
+        private System.Windows.Forms.Button ButtonSearch;
     }
 }
 
