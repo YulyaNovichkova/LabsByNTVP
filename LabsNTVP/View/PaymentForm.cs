@@ -42,6 +42,11 @@ namespace View
             dataGridView1.RowHeadersVisible = false;
         }
 
+        /// <summary>
+        /// Метод, вызываемый для удаления сотрудника.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonRemoveObject_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Удалить?",
@@ -59,12 +64,44 @@ namespace View
             }
         }
 
+        /// <summary>
+        /// Метод, вызываемый для добавления нового сотрудника.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonAddObject_Click(object sender, EventArgs e)
         {
             var result = _addObject.ShowDialog();
             if (result == DialogResult.OK)
             {
                 _bindingSource.Add(_addObject.payment);
+            }
+        }
+
+        /// <summary>
+        /// Метод, вызываемый для поиска сотрудника по фамилии.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                {
+                    if (dataGridView1.Rows[i].Cells[j].Value == null)
+                    {
+                        break;
+                    }
+
+                    if (TextBoxSearch.Text == dataGridView1.Rows[i].Cells[j].Value.ToString())
+                    {
+                        dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[j];
+                        dataGridView1.FirstDisplayedScrollingRowIndex = i;
+                        break;
+                    }
+
+                }
             }
         }
     }

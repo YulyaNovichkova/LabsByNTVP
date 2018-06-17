@@ -248,6 +248,7 @@
             this.Controls.Add(this.ComboBoxType);
             this.Controls.Add(this.LabelType);
             this.Name = "AddObjectForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddObjectForm";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
