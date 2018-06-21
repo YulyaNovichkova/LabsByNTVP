@@ -1,5 +1,8 @@
-﻿namespace Model
+﻿using System;
+
+namespace Model
 {
+    [Serializable]
     /// <summary>
     /// Класс SalaryPayment.
     /// Работает с данными для оклада по ставке.

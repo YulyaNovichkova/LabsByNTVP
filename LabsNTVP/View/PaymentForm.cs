@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
-
+using System.IO;
+using System.Data;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace View
 {
@@ -17,6 +13,11 @@ namespace View
     /// </summary>
     public partial class PaymentForm : Form
     {
+        /// <summary>
+        /// Сериализует/Десериализует объекты.
+        /// </summary>
+        private BinaryFormatter _formatter = new BinaryFormatter();
+
         /// <summary>
         /// Форма добавления нового сотрудника
         /// </summary>
@@ -101,6 +102,83 @@ namespace View
                         break;
                     }
 
+                }
+            }
+        }
+
+        /// <summary>
+        /// Метод, вызываемый для открытия файла, т.е дессериализации.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonOpen_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.AddExtension = true;
+            openFileDialog1.Filter = "Payment|*.pay";
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.Cancel)
+            {
+                MessageBox.Show("Открытие отменено!",
+                        "Открыть",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                return;
+            }
+
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    FileStream fileStream = new FileStream(openFileDialog1.FileName, FileMode.OpenOrCreate);
+                    List<IPayment> deserializePayment = (List<IPayment>)_formatter.Deserialize(fileStream);
+                    fileStream.Dispose();
+
+                    _bindingSource.Clear();
+
+                    foreach (IPayment payment in deserializePayment)
+                    {
+                        _bindingSource.Add(payment);
+                    }
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Метод, вызываемый для сохранения файла, т.е сериализации.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonSave_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.AddExtension = true;
+            saveFileDialog1.Filter = "Payment|*.pay";
+            DialogResult result = saveFileDialog1.ShowDialog();
+            if (result == DialogResult.Cancel)
+            {
+                MessageBox.Show("Сохранение отменено!",
+                        "Сохранить",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                return;
+            }
+
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    FileStream fileStream = new FileStream(saveFileDialog1.FileName, FileMode.OpenOrCreate);
+                    _formatter.Serialize(fileStream, _payment);
+                    fileStream.Dispose();
+
+                    MessageBox.Show("Файл сохранен. \r\nПуть:" + saveFileDialog1.FileName);
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message);
                 }
             }
         }
