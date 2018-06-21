@@ -86,23 +86,27 @@ namespace View
         /// <param name="e"></param>
         private void TextBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridView1.RowCount; i++)
+            List<int> indexes = new List<int>();
+
+            for (int index = 0; index < dataGridView1.RowCount; index++)
             {
-                for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                dataGridView1.Rows[index].Visible = true;
+            }
+
+            for (int count = 0; count < dataGridView1.RowCount; count++)
+            {
+                uint value = Convert.ToUInt32(dataGridView1.Rows[count].Cells["Payout"].Value);
+                if (value < Convert.ToUInt32(TextBoxSearch.Text))
                 {
-                    if (dataGridView1.Rows[i].Cells[j].Value == null)
-                    {
-                        break;
-                    }
-
-                    if (TextBoxSearch.Text == dataGridView1.Rows[i].Cells[j].Value.ToString())
-                    {
-                        dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[j];
-                        dataGridView1.FirstDisplayedScrollingRowIndex = i;
-                        break;
-                    }
-
+                    indexes.Add(count);
                 }
+            }
+
+            dataGridView1.CurrentCell = null;
+
+            foreach (int index in indexes)
+            {
+                dataGridView1.Rows[index].Visible = false;
             }
         }
 

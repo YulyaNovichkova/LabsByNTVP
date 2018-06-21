@@ -91,9 +91,9 @@
             this.LabelSearch.AutoSize = true;
             this.LabelSearch.Location = new System.Drawing.Point(443, 67);
             this.LabelSearch.Name = "LabelSearch";
-            this.LabelSearch.Size = new System.Drawing.Size(117, 39);
+            this.LabelSearch.Size = new System.Drawing.Size(102, 39);
             this.LabelSearch.TabIndex = 5;
-            this.LabelSearch.Text = "Введите фамилию \r\nсотрудника, которого\r\nнужно найти:";
+            this.LabelSearch.Text = "Поиск.\r\nВведите значение \r\nPayment:";
             // 
             // TextBoxSearch
             // 
