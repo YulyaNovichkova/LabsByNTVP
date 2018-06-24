@@ -38,13 +38,13 @@ namespace View
         {
                 if (ComboBoxType.SelectedIndex == 0)
                 {
-                    payment = new SalaryPayment(TextBoxSurname.Text, TextBoxName.Text, Convert.ToDouble(TextBoxSalary.Text),
-                        Convert.ToDouble(TextBoxRate.Text), Convert.ToUInt32(TextBoxVacationDays.Text));
+                    payment = new SalaryPayment(SurnameTextBox1.Text, NameTextBox1.Text, Convert.ToDouble(SalaryTextBox.Text),
+                        Convert.ToDouble(RateTextBox.Text), Convert.ToUInt32(VacationDaysTextBox1.Text));
                 }
                 else if (ComboBoxType.SelectedIndex == 1)
                 {
-                    payment = new HourlyPayment(TextBoxSurname.Text, TextBoxName.Text, Convert.ToDouble(TextBoxSalary.Text),
-                        Convert.ToUInt32(TextBoxWorkDay.Text), Convert.ToUInt32(TextBoxVacationDays.Text), Convert.ToUInt32(TextBoxHour.Text));
+                    payment = new HourlyPayment(SurnameTextBox2.Text, NameTextBox2.Text, Convert.ToDouble(SalaryTextBox.Text),
+                        Convert.ToUInt32(WorkDayTextBox.Text), Convert.ToUInt32(VacationDaysTextBox2.Text), Convert.ToUInt32(HourTextBox.Text));
                 }
             ClearTextBoxes();
             DialogResult = DialogResult.OK;
@@ -71,13 +71,17 @@ namespace View
         /// </summary>
         private void ClearTextBoxes()
         {
-            TextBoxSurname.Text = String.Empty;
-            TextBoxName.Text = String.Empty;
-            TextBoxSalary.Text = String.Empty;
-            TextBoxWorkDay.Text = String.Empty;
-            TextBoxVacationDays.Text = String.Empty;
-            TextBoxRate.Text = String.Empty;
-            TextBoxHour.Text = String.Empty;
+            SurnameTextBox1.Text = String.Empty;
+            NameTextBox1.Text = String.Empty;
+            SalaryTextBox.Text = String.Empty;
+            RateTextBox.Text = String.Empty;
+            VacationDaysTextBox1.Text = String.Empty;
+
+            SurnameTextBox2.Text = String.Empty;
+            NameTextBox2.Text = String.Empty;
+            WorkDayTextBox.Text = String.Empty;
+            HourTextBox.Text = String.Empty;
+            VacationDaysTextBox2.Text = String.Empty;
         }
 
         /// <summary>
@@ -93,27 +97,17 @@ namespace View
 
             if (ComboBoxType.SelectedIndex == 0)
             {
-
-                LabelRate.Visible = true;
-                TextBoxRate.Visible = true;
-
-                LabelWorkMonth.Visible = false;
-                TextBoxWorkDay.Visible = false;
-
-                LabelHour.Visible = false;
-                TextBoxHour.Visible = false;
+                SalaryGroupBox.Visible = true;
+                HourlyGroupBox.Visible = false;
             }
             if (ComboBoxType.SelectedIndex == 1)
             {
+                HourlyGroupBox.Visible = true;
+                SalaryGroupBox.Visible = false;
 
-                LabelWorkMonth.Visible = true;
-                TextBoxWorkDay.Visible = true;
-
-                LabelHour.Visible = true;
-                TextBoxHour.Visible = true;
-
-                LabelRate.Visible = false;
-                TextBoxRate.Visible = false;
+                int x = HourlyGroupBox.Location.X - 306;
+                int y = HourlyGroupBox.Location.Y;
+                HourlyGroupBox.Location = new Point(x, y);
             }
         }
 
@@ -122,7 +116,10 @@ namespace View
         /// </summary>
         private void MakeElementsInvisible(bool IsTrue)
         {
-            groupBox1.Visible = IsTrue;
+            SalaryGroupBox.Visible = IsTrue;
+            HourlyGroupBox.Visible = IsTrue;
+            ButtonAdd.Visible = IsTrue;
+            ButtonClose.Visible = IsTrue;
         }
 
         /// <summary>

@@ -80,7 +80,7 @@ namespace View
         }
 
         /// <summary>
-        /// Метод, вызываемый для поиска сотрудника по фамилии.
+        /// Метод, вызываемый для поиска сотрудника в колонке "Payout".
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -115,7 +115,7 @@ namespace View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ButtonOpen_Click(object sender, EventArgs e)
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFileDialog1.AddExtension = true;
             openFileDialog1.Filter = "Payment|*.pay";
@@ -156,7 +156,7 @@ namespace View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ButtonSave_Click(object sender, EventArgs e)
+        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFileDialog1.AddExtension = true;
             saveFileDialog1.Filter = "Payment|*.pay";

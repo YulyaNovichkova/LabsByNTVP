@@ -32,23 +32,31 @@
             this.ButtonAdd = new System.Windows.Forms.Button();
             this.ButtonClose = new System.Windows.Forms.Button();
             this.LabelType = new System.Windows.Forms.Label();
-            this.LabelSalary = new System.Windows.Forms.Label();
-            this.TextBoxSurname = new System.Windows.Forms.TextBox();
-            this.TextBoxName = new System.Windows.Forms.TextBox();
-            this.LabelWorkMonth = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.LabelHour = new System.Windows.Forms.Label();
-            this.LabelRate = new System.Windows.Forms.Label();
-            this.LabelName = new System.Windows.Forms.Label();
-            this.TextBoxHour = new System.Windows.Forms.TextBox();
-            this.TextBoxRate = new System.Windows.Forms.TextBox();
-            this.TextBoxWorkDay = new System.Windows.Forms.TextBox();
-            this.TextBoxVacationDays = new System.Windows.Forms.TextBox();
-            this.LabelSurname = new System.Windows.Forms.Label();
-            this.LabelVacationDays = new System.Windows.Forms.Label();
-            this.TextBoxSalary = new System.Windows.Forms.TextBox();
+            this.SalaryLabel = new System.Windows.Forms.Label();
+            this.SurnameTextBox1 = new System.Windows.Forms.TextBox();
+            this.NameTextBox1 = new System.Windows.Forms.TextBox();
+            this.WorkMonthLabel = new System.Windows.Forms.Label();
+            this.SalaryGroupBox = new System.Windows.Forms.GroupBox();
+            this.HourLabel = new System.Windows.Forms.Label();
+            this.RateLabel = new System.Windows.Forms.Label();
+            this.NameLabel1 = new System.Windows.Forms.Label();
+            this.HourTextBox = new System.Windows.Forms.TextBox();
+            this.RateTextBox = new System.Windows.Forms.TextBox();
+            this.WorkDayTextBox = new System.Windows.Forms.TextBox();
+            this.VacationDaysTextBox1 = new System.Windows.Forms.TextBox();
+            this.SurnameLabel1 = new System.Windows.Forms.Label();
+            this.VacationDaysLabel1 = new System.Windows.Forms.Label();
+            this.SalaryTextBox = new System.Windows.Forms.TextBox();
             this.ButtonRandomPerson = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.HourlyGroupBox = new System.Windows.Forms.GroupBox();
+            this.SurnameLabel2 = new System.Windows.Forms.Label();
+            this.NameLabel2 = new System.Windows.Forms.Label();
+            this.VacationDaysLabel2 = new System.Windows.Forms.Label();
+            this.SurnameTextBox2 = new System.Windows.Forms.TextBox();
+            this.NameTextBox2 = new System.Windows.Forms.TextBox();
+            this.VacationDaysTextBox2 = new System.Windows.Forms.TextBox();
+            this.SalaryGroupBox.SuspendLayout();
+            this.HourlyGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // ComboBoxType
@@ -57,7 +65,7 @@
             this.ComboBoxType.Items.AddRange(new object[] {
             "По ставке",
             "По часовая"});
-            this.ComboBoxType.Location = new System.Drawing.Point(23, 60);
+            this.ComboBoxType.Location = new System.Drawing.Point(29, 25);
             this.ComboBoxType.Name = "ComboBoxType";
             this.ComboBoxType.Size = new System.Drawing.Size(121, 21);
             this.ComboBoxType.TabIndex = 0;
@@ -65,7 +73,7 @@
             // 
             // ButtonAdd
             // 
-            this.ButtonAdd.Location = new System.Drawing.Point(46, 209);
+            this.ButtonAdd.Location = new System.Drawing.Point(75, 213);
             this.ButtonAdd.Name = "ButtonAdd";
             this.ButtonAdd.Size = new System.Drawing.Size(75, 23);
             this.ButtonAdd.TabIndex = 1;
@@ -75,7 +83,7 @@
             // 
             // ButtonClose
             // 
-            this.ButtonClose.Location = new System.Drawing.Point(162, 209);
+            this.ButtonClose.Location = new System.Drawing.Point(181, 213);
             this.ButtonClose.Name = "ButtonClose";
             this.ButtonClose.Size = new System.Drawing.Size(75, 23);
             this.ButtonClose.TabIndex = 2;
@@ -86,172 +94,238 @@
             // LabelType
             // 
             this.LabelType.AutoSize = true;
-            this.LabelType.Location = new System.Drawing.Point(26, 35);
+            this.LabelType.Location = new System.Drawing.Point(26, 9);
             this.LabelType.Name = "LabelType";
             this.LabelType.Size = new System.Drawing.Size(117, 13);
             this.LabelType.TabIndex = 3;
             this.LabelType.Text = "Выберите тип оплаты";
             // 
-            // LabelSalary
+            // SalaryLabel
             // 
-            this.LabelSalary.AutoSize = true;
-            this.LabelSalary.Location = new System.Drawing.Point(6, 62);
-            this.LabelSalary.Name = "LabelSalary";
-            this.LabelSalary.Size = new System.Drawing.Size(43, 13);
-            this.LabelSalary.TabIndex = 4;
-            this.LabelSalary.Text = "Ставка";
+            this.SalaryLabel.AutoSize = true;
+            this.SalaryLabel.Location = new System.Drawing.Point(6, 73);
+            this.SalaryLabel.Name = "SalaryLabel";
+            this.SalaryLabel.Size = new System.Drawing.Size(43, 13);
+            this.SalaryLabel.TabIndex = 4;
+            this.SalaryLabel.Text = "Ставка";
             // 
-            // TextBoxSurname
+            // SurnameTextBox1
             // 
-            this.TextBoxSurname.Location = new System.Drawing.Point(2, 37);
-            this.TextBoxSurname.Name = "TextBoxSurname";
-            this.TextBoxSurname.Size = new System.Drawing.Size(121, 20);
-            this.TextBoxSurname.TabIndex = 5;
+            this.SurnameTextBox1.Location = new System.Drawing.Point(158, 18);
+            this.SurnameTextBox1.Name = "SurnameTextBox1";
+            this.SurnameTextBox1.Size = new System.Drawing.Size(121, 20);
+            this.SurnameTextBox1.TabIndex = 5;
             // 
-            // TextBoxName
+            // NameTextBox1
             // 
-            this.TextBoxName.Location = new System.Drawing.Point(162, 37);
-            this.TextBoxName.Name = "TextBoxName";
-            this.TextBoxName.Size = new System.Drawing.Size(121, 20);
-            this.TextBoxName.TabIndex = 6;
+            this.NameTextBox1.Location = new System.Drawing.Point(158, 44);
+            this.NameTextBox1.Name = "NameTextBox1";
+            this.NameTextBox1.Size = new System.Drawing.Size(121, 20);
+            this.NameTextBox1.TabIndex = 6;
             // 
-            // LabelWorkMonth
+            // WorkMonthLabel
             // 
-            this.LabelWorkMonth.AutoSize = true;
-            this.LabelWorkMonth.Location = new System.Drawing.Point(-1, 110);
-            this.LabelWorkMonth.Name = "LabelWorkMonth";
-            this.LabelWorkMonth.Size = new System.Drawing.Size(144, 13);
-            this.LabelWorkMonth.TabIndex = 7;
-            this.LabelWorkMonth.Text = "Отработано дней в месяце";
+            this.WorkMonthLabel.AutoSize = true;
+            this.WorkMonthLabel.Location = new System.Drawing.Point(6, 73);
+            this.WorkMonthLabel.Name = "WorkMonthLabel";
+            this.WorkMonthLabel.Size = new System.Drawing.Size(144, 13);
+            this.WorkMonthLabel.TabIndex = 7;
+            this.WorkMonthLabel.Text = "Отработано дней в месяце";
             // 
-            // groupBox1
+            // SalaryGroupBox
             // 
-            this.groupBox1.Controls.Add(this.LabelHour);
-            this.groupBox1.Controls.Add(this.LabelRate);
-            this.groupBox1.Controls.Add(this.LabelName);
-            this.groupBox1.Controls.Add(this.TextBoxHour);
-            this.groupBox1.Controls.Add(this.TextBoxRate);
-            this.groupBox1.Controls.Add(this.TextBoxWorkDay);
-            this.groupBox1.Controls.Add(this.TextBoxVacationDays);
-            this.groupBox1.Controls.Add(this.LabelSurname);
-            this.groupBox1.Controls.Add(this.LabelVacationDays);
-            this.groupBox1.Controls.Add(this.TextBoxSalary);
-            this.groupBox1.Controls.Add(this.TextBoxName);
-            this.groupBox1.Controls.Add(this.ButtonClose);
-            this.groupBox1.Controls.Add(this.LabelSalary);
-            this.groupBox1.Controls.Add(this.ButtonAdd);
-            this.groupBox1.Controls.Add(this.LabelWorkMonth);
-            this.groupBox1.Controls.Add(this.TextBoxSurname);
-            this.groupBox1.Location = new System.Drawing.Point(23, 87);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(300, 247);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
+            this.SalaryGroupBox.Controls.Add(this.RateLabel);
+            this.SalaryGroupBox.Controls.Add(this.NameLabel1);
+            this.SalaryGroupBox.Controls.Add(this.RateTextBox);
+            this.SalaryGroupBox.Controls.Add(this.VacationDaysTextBox1);
+            this.SalaryGroupBox.Controls.Add(this.SurnameLabel1);
+            this.SalaryGroupBox.Controls.Add(this.VacationDaysLabel1);
+            this.SalaryGroupBox.Controls.Add(this.SalaryTextBox);
+            this.SalaryGroupBox.Controls.Add(this.NameTextBox1);
+            this.SalaryGroupBox.Controls.Add(this.SalaryLabel);
+            this.SalaryGroupBox.Controls.Add(this.SurnameTextBox1);
+            this.SalaryGroupBox.Location = new System.Drawing.Point(23, 52);
+            this.SalaryGroupBox.Name = "SalaryGroupBox";
+            this.SalaryGroupBox.Size = new System.Drawing.Size(300, 155);
+            this.SalaryGroupBox.TabIndex = 8;
+            this.SalaryGroupBox.TabStop = false;
             // 
-            // LabelHour
+            // HourLabel
             // 
-            this.LabelHour.AutoSize = true;
-            this.LabelHour.Location = new System.Drawing.Point(3, 158);
-            this.LabelHour.Name = "LabelHour";
-            this.LabelHour.Size = new System.Drawing.Size(109, 13);
-            this.LabelHour.TabIndex = 16;
-            this.LabelHour.Text = "Кол-во часов в день";
+            this.HourLabel.AutoSize = true;
+            this.HourLabel.Location = new System.Drawing.Point(6, 99);
+            this.HourLabel.Name = "HourLabel";
+            this.HourLabel.Size = new System.Drawing.Size(109, 13);
+            this.HourLabel.TabIndex = 16;
+            this.HourLabel.Text = "Кол-во часов в день";
             // 
-            // LabelRate
+            // RateLabel
             // 
-            this.LabelRate.AutoSize = true;
-            this.LabelRate.Location = new System.Drawing.Point(166, 62);
-            this.LabelRate.Name = "LabelRate";
-            this.LabelRate.Size = new System.Drawing.Size(69, 13);
-            this.LabelRate.TabIndex = 14;
-            this.LabelRate.Text = "Коэфициент";
+            this.RateLabel.AutoSize = true;
+            this.RateLabel.Location = new System.Drawing.Point(6, 99);
+            this.RateLabel.Name = "RateLabel";
+            this.RateLabel.Size = new System.Drawing.Size(69, 13);
+            this.RateLabel.TabIndex = 14;
+            this.RateLabel.Text = "Коэфициент";
             // 
-            // LabelName
+            // NameLabel1
             // 
-            this.LabelName.AutoSize = true;
-            this.LabelName.Location = new System.Drawing.Point(159, 21);
-            this.LabelName.Name = "LabelName";
-            this.LabelName.Size = new System.Drawing.Size(85, 13);
-            this.LabelName.TabIndex = 11;
-            this.LabelName.Text = "Имя работника";
+            this.NameLabel1.AutoSize = true;
+            this.NameLabel1.Location = new System.Drawing.Point(6, 47);
+            this.NameLabel1.Name = "NameLabel1";
+            this.NameLabel1.Size = new System.Drawing.Size(29, 13);
+            this.NameLabel1.TabIndex = 11;
+            this.NameLabel1.Text = "Имя";
             // 
-            // TextBoxHour
+            // HourTextBox
             // 
-            this.TextBoxHour.Location = new System.Drawing.Point(0, 174);
-            this.TextBoxHour.Name = "TextBoxHour";
-            this.TextBoxHour.Size = new System.Drawing.Size(121, 20);
-            this.TextBoxHour.TabIndex = 9;
+            this.HourTextBox.Location = new System.Drawing.Point(158, 96);
+            this.HourTextBox.Name = "HourTextBox";
+            this.HourTextBox.Size = new System.Drawing.Size(121, 20);
+            this.HourTextBox.TabIndex = 9;
             // 
-            // TextBoxRate
+            // RateTextBox
             // 
-            this.TextBoxRate.Location = new System.Drawing.Point(162, 78);
-            this.TextBoxRate.Name = "TextBoxRate";
-            this.TextBoxRate.Size = new System.Drawing.Size(121, 20);
-            this.TextBoxRate.TabIndex = 15;
+            this.RateTextBox.Location = new System.Drawing.Point(158, 96);
+            this.RateTextBox.Name = "RateTextBox";
+            this.RateTextBox.Size = new System.Drawing.Size(121, 20);
+            this.RateTextBox.TabIndex = 15;
             // 
-            // TextBoxWorkDay
+            // WorkDayTextBox
             // 
-            this.TextBoxWorkDay.Location = new System.Drawing.Point(2, 126);
-            this.TextBoxWorkDay.Name = "TextBoxWorkDay";
-            this.TextBoxWorkDay.Size = new System.Drawing.Size(121, 20);
-            this.TextBoxWorkDay.TabIndex = 13;
+            this.WorkDayTextBox.Location = new System.Drawing.Point(158, 70);
+            this.WorkDayTextBox.Name = "WorkDayTextBox";
+            this.WorkDayTextBox.Size = new System.Drawing.Size(121, 20);
+            this.WorkDayTextBox.TabIndex = 13;
             // 
-            // TextBoxVacationDays
+            // VacationDaysTextBox1
             // 
-            this.TextBoxVacationDays.Location = new System.Drawing.Point(162, 126);
-            this.TextBoxVacationDays.Name = "TextBoxVacationDays";
-            this.TextBoxVacationDays.Size = new System.Drawing.Size(121, 20);
-            this.TextBoxVacationDays.TabIndex = 12;
+            this.VacationDaysTextBox1.Location = new System.Drawing.Point(158, 122);
+            this.VacationDaysTextBox1.Name = "VacationDaysTextBox1";
+            this.VacationDaysTextBox1.Size = new System.Drawing.Size(121, 20);
+            this.VacationDaysTextBox1.TabIndex = 12;
             // 
-            // LabelSurname
+            // SurnameLabel1
             // 
-            this.LabelSurname.AutoSize = true;
-            this.LabelSurname.Location = new System.Drawing.Point(3, 21);
-            this.LabelSurname.Name = "LabelSurname";
-            this.LabelSurname.Size = new System.Drawing.Size(112, 13);
-            this.LabelSurname.TabIndex = 10;
-            this.LabelSurname.Text = "Фамилия работника";
+            this.SurnameLabel1.AutoSize = true;
+            this.SurnameLabel1.Location = new System.Drawing.Point(6, 21);
+            this.SurnameLabel1.Name = "SurnameLabel1";
+            this.SurnameLabel1.Size = new System.Drawing.Size(56, 13);
+            this.SurnameLabel1.TabIndex = 10;
+            this.SurnameLabel1.Text = "Фамилия";
             // 
-            // LabelVacationDays
+            // VacationDaysLabel1
             // 
-            this.LabelVacationDays.AutoSize = true;
-            this.LabelVacationDays.Location = new System.Drawing.Point(159, 110);
-            this.LabelVacationDays.Name = "LabelVacationDays";
-            this.LabelVacationDays.Size = new System.Drawing.Size(120, 13);
-            this.LabelVacationDays.TabIndex = 9;
-            this.LabelVacationDays.Text = "Кол-во дней в отпуске";
+            this.VacationDaysLabel1.AutoSize = true;
+            this.VacationDaysLabel1.Location = new System.Drawing.Point(6, 125);
+            this.VacationDaysLabel1.Name = "VacationDaysLabel1";
+            this.VacationDaysLabel1.Size = new System.Drawing.Size(120, 13);
+            this.VacationDaysLabel1.TabIndex = 9;
+            this.VacationDaysLabel1.Text = "Кол-во дней в отпуске";
             // 
-            // TextBoxSalary
+            // SalaryTextBox
             // 
-            this.TextBoxSalary.Location = new System.Drawing.Point(2, 78);
-            this.TextBoxSalary.Name = "TextBoxSalary";
-            this.TextBoxSalary.Size = new System.Drawing.Size(121, 20);
-            this.TextBoxSalary.TabIndex = 8;
+            this.SalaryTextBox.Location = new System.Drawing.Point(158, 70);
+            this.SalaryTextBox.Name = "SalaryTextBox";
+            this.SalaryTextBox.Size = new System.Drawing.Size(121, 20);
+            this.SalaryTextBox.TabIndex = 8;
             // 
             // ButtonRandomPerson
             // 
-            this.ButtonRandomPerson.Location = new System.Drawing.Point(172, 35);
+            this.ButtonRandomPerson.Location = new System.Drawing.Point(181, 25);
             this.ButtonRandomPerson.Name = "ButtonRandomPerson";
-            this.ButtonRandomPerson.Size = new System.Drawing.Size(142, 46);
+            this.ButtonRandomPerson.Size = new System.Drawing.Size(95, 21);
             this.ButtonRandomPerson.TabIndex = 9;
-            this.ButtonRandomPerson.Text = "Добавить случайного сотрудника";
+            this.ButtonRandomPerson.Text = "Random";
             this.ButtonRandomPerson.UseVisualStyleBackColor = true;
             this.ButtonRandomPerson.Click += new System.EventHandler(this.ButtonRandomPerson_Click);
+            // 
+            // HourlyGroupBox
+            // 
+            this.HourlyGroupBox.Controls.Add(this.VacationDaysTextBox2);
+            this.HourlyGroupBox.Controls.Add(this.NameTextBox2);
+            this.HourlyGroupBox.Controls.Add(this.SurnameTextBox2);
+            this.HourlyGroupBox.Controls.Add(this.SurnameLabel2);
+            this.HourlyGroupBox.Controls.Add(this.NameLabel2);
+            this.HourlyGroupBox.Controls.Add(this.VacationDaysLabel2);
+            this.HourlyGroupBox.Controls.Add(this.HourLabel);
+            this.HourlyGroupBox.Controls.Add(this.WorkMonthLabel);
+            this.HourlyGroupBox.Controls.Add(this.HourTextBox);
+            this.HourlyGroupBox.Controls.Add(this.WorkDayTextBox);
+            this.HourlyGroupBox.Location = new System.Drawing.Point(329, 52);
+            this.HourlyGroupBox.Name = "HourlyGroupBox";
+            this.HourlyGroupBox.Size = new System.Drawing.Size(300, 155);
+            this.HourlyGroupBox.TabIndex = 10;
+            this.HourlyGroupBox.TabStop = false;
+            this.HourlyGroupBox.Text = " ";
+            // 
+            // SurnameLabel2
+            // 
+            this.SurnameLabel2.AutoSize = true;
+            this.SurnameLabel2.Location = new System.Drawing.Point(6, 21);
+            this.SurnameLabel2.Name = "SurnameLabel2";
+            this.SurnameLabel2.Size = new System.Drawing.Size(56, 13);
+            this.SurnameLabel2.TabIndex = 16;
+            this.SurnameLabel2.Text = "Фамилия";
+            // 
+            // NameLabel2
+            // 
+            this.NameLabel2.AutoSize = true;
+            this.NameLabel2.Location = new System.Drawing.Point(6, 47);
+            this.NameLabel2.Name = "NameLabel2";
+            this.NameLabel2.Size = new System.Drawing.Size(29, 13);
+            this.NameLabel2.TabIndex = 17;
+            this.NameLabel2.Text = "Имя";
+            // 
+            // VacationDaysLabel2
+            // 
+            this.VacationDaysLabel2.AutoSize = true;
+            this.VacationDaysLabel2.Location = new System.Drawing.Point(6, 125);
+            this.VacationDaysLabel2.Name = "VacationDaysLabel2";
+            this.VacationDaysLabel2.Size = new System.Drawing.Size(120, 13);
+            this.VacationDaysLabel2.TabIndex = 18;
+            this.VacationDaysLabel2.Text = "Кол-во дней в отпуске";
+            // 
+            // SurnameTextBox2
+            // 
+            this.SurnameTextBox2.Location = new System.Drawing.Point(158, 18);
+            this.SurnameTextBox2.Name = "SurnameTextBox2";
+            this.SurnameTextBox2.Size = new System.Drawing.Size(121, 20);
+            this.SurnameTextBox2.TabIndex = 19;
+            // 
+            // NameTextBox2
+            // 
+            this.NameTextBox2.Location = new System.Drawing.Point(158, 44);
+            this.NameTextBox2.Name = "NameTextBox2";
+            this.NameTextBox2.Size = new System.Drawing.Size(121, 20);
+            this.NameTextBox2.TabIndex = 20;
+            // 
+            // VacationDaysTextBox2
+            // 
+            this.VacationDaysTextBox2.Location = new System.Drawing.Point(158, 122);
+            this.VacationDaysTextBox2.Name = "VacationDaysTextBox2";
+            this.VacationDaysTextBox2.Size = new System.Drawing.Size(121, 20);
+            this.VacationDaysTextBox2.TabIndex = 21;
             // 
             // AddObjectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(328, 346);
+            this.ClientSize = new System.Drawing.Size(328, 246);
+            this.Controls.Add(this.HourlyGroupBox);
             this.Controls.Add(this.ButtonRandomPerson);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.SalaryGroupBox);
             this.Controls.Add(this.ComboBoxType);
             this.Controls.Add(this.LabelType);
+            this.Controls.Add(this.ButtonAdd);
+            this.Controls.Add(this.ButtonClose);
             this.Name = "AddObjectForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddObjectForm";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.SalaryGroupBox.ResumeLayout(false);
+            this.SalaryGroupBox.PerformLayout();
+            this.HourlyGroupBox.ResumeLayout(false);
+            this.HourlyGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,21 +337,28 @@
         private System.Windows.Forms.Button ButtonAdd;
         private System.Windows.Forms.Button ButtonClose;
         private System.Windows.Forms.Label LabelType;
-        private System.Windows.Forms.Label LabelSalary;
-        private System.Windows.Forms.TextBox TextBoxSurname;
-        private System.Windows.Forms.TextBox TextBoxName;
-        private System.Windows.Forms.Label LabelWorkMonth;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label LabelVacationDays;
-        private System.Windows.Forms.TextBox TextBoxSalary;
-        private System.Windows.Forms.TextBox TextBoxWorkDay;
-        private System.Windows.Forms.TextBox TextBoxVacationDays;
-        private System.Windows.Forms.Label LabelName;
-        private System.Windows.Forms.Label LabelSurname;
-        private System.Windows.Forms.TextBox TextBoxRate;
-        private System.Windows.Forms.Label LabelRate;
-        private System.Windows.Forms.TextBox TextBoxHour;
-        private System.Windows.Forms.Label LabelHour;
+        private System.Windows.Forms.Label SalaryLabel;
+        private System.Windows.Forms.TextBox SurnameTextBox1;
+        private System.Windows.Forms.TextBox NameTextBox1;
+        private System.Windows.Forms.Label WorkMonthLabel;
+        private System.Windows.Forms.GroupBox SalaryGroupBox;
+        private System.Windows.Forms.Label VacationDaysLabel1;
+        private System.Windows.Forms.TextBox SalaryTextBox;
+        private System.Windows.Forms.TextBox WorkDayTextBox;
+        private System.Windows.Forms.TextBox VacationDaysTextBox1;
+        private System.Windows.Forms.Label NameLabel1;
+        private System.Windows.Forms.Label SurnameLabel1;
+        private System.Windows.Forms.TextBox RateTextBox;
+        private System.Windows.Forms.Label RateLabel;
+        private System.Windows.Forms.TextBox HourTextBox;
+        private System.Windows.Forms.Label HourLabel;
         private System.Windows.Forms.Button ButtonRandomPerson;
+        private System.Windows.Forms.GroupBox HourlyGroupBox;
+        private System.Windows.Forms.TextBox VacationDaysTextBox2;
+        private System.Windows.Forms.TextBox NameTextBox2;
+        private System.Windows.Forms.TextBox SurnameTextBox2;
+        private System.Windows.Forms.Label SurnameLabel2;
+        private System.Windows.Forms.Label NameLabel2;
+        private System.Windows.Forms.Label VacationDaysLabel2;
     }
 }
